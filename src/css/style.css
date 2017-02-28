@@ -1,0 +1,126 @@
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #F9F9F9;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.wrapper-home {
+  max-width: 50em;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.button {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  align-items: center;
+  border: none;
+  border-radius: 3px;
+  box-shadow: none;
+  display: inline-flex;
+  font-size: 1rem;
+  height: 2.285em;
+  justify-content: flex-start;
+  line-height: 1.5;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  position: relative;
+  vertical-align: top;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: white;
+  border: 1px solid #dbdbdb;
+  color: #363636;
+  cursor: pointer;
+  justify-content: center;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.search_box > input {
+  width: 15.4em;
+  font-size: 1em;
+  border-radius: 4px;
+  background-color: white;
+  border: 0.2px solid #E8E8E8;
+  padding: 0.6em;
+}
+
+.search_box > select {
+  width: 10.7em;
+  font-size: 1em;
+  border-radius: 4px;
+  background-color: white;
+  border: 0.2px solid #E8E8E8;
+  padding: 0.6em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+article {
+  margin: 1em 0 1em 0;
+  background-color: #FFFFFF;
+  padding: 0.5em;
+  border: 0.2px solid #E8E8E8;
+  border-radius: 5px;
+}
+
+article:hover{
+  background-color: transparent;
+}
+
+.wrapper-job {
+  display: flex;
+  flex-direction: row;
+}
+
+.job_img {
+  width: 7em;
+  height: 7em;
+  border-radius: 5px;
+}
+
+.job_info {
+  margin-left: 2em;
+  font-size: 1.1em;
+}
+
+.job_company {
+   font-weight: 900;
+}
+
+.job_title, .job_city {
+  margin: 0.4em 0 0.4em 0;
+}
+
+
+/* HACK
+* {
+  border: 1px solid red;
+}

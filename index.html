@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JOB BOARD</title>
+    <meta name="viewport" content="width = device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="src/css/style.css" media="screen" title="no title">
+  </head>
+  <body>
+
+  <div class="wrapper-home">
+
+    <header class="header">
+      <div class="header_title">
+        <h1>Moovii</h1>
+        <h2>International Film and TV Production job board</h2>
+      </div>
+    </header>
+
+    <div class="content">
+      <main id="app"></main>
+    </div>
+
+    <template id="job-List">
+      <section>
+        <div class="search_box">
+          <input v-model="searchKey" name="name" placeholder="Search all jobs">
+          <input v-model="searchCity" name="name" placeholder="Located anywhere">
+          <select name="select">
+            <option selected="valeur">Skill ?</option>
+            <option value="valeur1">Valeur 1</option>
+            <option value="valeur2">Valeur 2</option>
+            <option value="valeur3">Valeur 3</option>
+          </select>
+          <router-link class="button" :to="{path: '/add-job'}">
+            Add job
+          </router-link>
+        </div>
+        <article v-for="job in filteredJobs">
+            <a class="job" href="#" target="_blank">
+              <div class="wrapper-job">
+                <img class="job_img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJcAAACXCAMAAAAvQTlLAAAAbFBMVEX///8jHyAAAAAgHB0UDhAIAAD7+/scFxgaFRb19fX4+Pjw8PAeGRrs7OwPCArV1dWXlpfNzM3Hx8epqKkrKClJRkeHhoehoKBWVFW+vb3b29t1dXVfXl5MS0xBP0C3t7doaGiPjo43Nzd/fX5CAUU4AAADE0lEQVR4nO2a27KiMBBFSSfBKBDuHARGAf//Hwf1eAbQGQ1VdKipXo/44K6ks/uSOA5BEARBEARBEARBEMT/ymFvW8ELvGNRlp5tFXO8qBdanwLbOqa4KQPOmNrYeu1b7bMB1W4qwIITsBu6sC1ljJfruywmU9taRrjt92oxBlsKr1Q+ZMnWtpYRgebfsrgIbYsZUfzsoq5d22L+EGSP5fLZlkz1/DiLHM62tYxwa/2QtSWPcPa5usnawZdtKROCe9RDn9hWMmXQxZWES2VbyIwARNZEWzqId9wwrLZQQ1TJ16Up2yiZb1x1LnImRFZ2R/w9TepeghRCA/T12K7SNgOpfM59AZC1uE6W5CB89pMMAYrwWj948QVAPVz/+pOC/oimyu2kYBM48LKIilIBZzMUdEi5MmAw//NB2U5LvXv+fnM0lFos6MXLv/87EqMHCUAZyhpWrFx9K/eNfq9jjoDVDaN4EVvvkOXqWSBYIAt+rR9erWnMDzU1Qocb7p786R1KIyTNWr4XMoXvMDqjZzt/h8SYByTGUc8Bo/TpjLdRXhBkuY2x1WuM6Apy/72SCbtfGHV1lZmGvagRZDmxcWrUHYYu8+MoUVpcc104E4EFuja6XluNL4Fhq05sbPeqwUhDITP1L55hdNxVb1xOoBzIffm6QfwHqkfQ5dTmVTRgjAEi864DJXObG8WwYAip+7BAF0ro5+YzAJTk/bVkwThEa48nQmXsYFegXNlePXMHuyGyy7qzgAVOcYOvPNHxFuraZavKcpwl4y+GYBbJIl3r1xUH896WoUwpjos8HyFJnhYUFRjldGI+A0OpWp3CVBjSBe4ezMYniqHIGl38fwTOJPOG0ZgVUHrbO/3nJiZOeLKcWHxa7/gM9aXOp+7KIcaU9XxPxH0lhFDzkwoRrqxrST3aSh/8vK0vdZur6WcLL2Kix0UkF+BHYXCt4d0gLn5uuIfvVl7EVI0Ara+X/tOeOm04gARgraVHHoe4a5vi/JT8DmHaXbp0aw9iCIIgCIIgCIIgCIIgCIIgCIIgCIJYld/D0SXte+A4dAAAAABJRU5ErkJggg==" alt="job_img" />
+                <div class="job_info">
+                  <p class="job_company">{{job.company}}</p>
+                  <p class="job_title">{{job.title}}</p>
+                  <p class="job_city">{{job.city}}</p>
+                </div>
+              </div>
+            </a>
+        </article>
+      </section>
+    </template>
+
+    <template id="add-job">
+      <section>
+        <h2>Add new job</h2>
+        <form v-on:submit="createJob">
+          <div>
+            <label for="add-company">Company</label>
+            <input id="add-company" v-model="job.company" required/>
+          </div>
+          <div>
+            <label for="add-title">Title</label>
+            <input id="add-title" v-model="job.title" required/>
+          </div>
+          <div>
+            <label for="add-city">City</label>
+            <input id="add-city" v-model="job.city" required/>
+          </div>
+          <button type="submit" class="button is-primary">Create</button>
+          <router-link :to="{name: 'home'}" class="button is-danger">Cancel</router-link>
+        </form>
+      </section>
+    </template>
+
+  </div>
+
+  <script src="node_modules/vue/dist/vue.min.js" charset="utf-8"></script>
+  <script src="node_modules/vue-router/dist/vue-router.min.js" charset="utf-8"></script>
+  <script src="src/js/index.js" charset="utf-8"></script>
+  </body>
+</html>
